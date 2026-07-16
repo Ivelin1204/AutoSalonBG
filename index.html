@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Salon BG</title>
+  <link rel="icon" type="image/png" href="data:image/png;base64,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" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState } = React;
+
+const SERVICES = [
+  { title:'Стандартно комплексно измиване', prices:['28 лв. — Лек автомобил','32 лв. — SUV / Миниван','35 лв. — Джип','40 лв. — X7 / GLS / XC90'], dur:'50 – 70 мин.' },
+  { title:'ВИП комплексно измиване', prices:['33 лв. — Лек автомобил','36 лв. — SUV / Миниван','40 лв. — Джип','45 лв. — X7 / GLS / XC90'], dur:'60 – 75 мин.' },
+  { title:'Твърда вакса', prices:['80 лв. — Лек автомобил','85 лв. — SUV / Миниван','90 лв. — Джип'], dur:'80 – 90 мин.', inc:'Включва ВИП измиване + нанасяне на твърда вакса' },
+  { title:'Пране на тапицерия / кожен салон', prices:['160 лв. — Лек автомобил','170 лв. — SUV / Миниван','180 лв. — Джип'], dur:'120 – 180 мин.', inc:'Включва ВИП измиване + пране' },
+  { title:'Полиране на фарове', prices:['35 лв./бр. — Лек автомобил','40 лв./бр. — SUV / Миниван','45 лв./бр. — Джип'], dur:'60 – 80 мин.' },
+];
+
+const SLIDES = [
+  'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=680',
+  'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=680',
+  'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=680',
+  'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=680',
+];
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function Nav({ page, setPage }) {
+  const [open, setOpen] = useState(false);
+  const links = [
+    { label:'Начало', key:'home' },
+    { label:'За нас', key:'about' },
+    { label:'Галерия', key:'gallery' },
+    { label:'Контакти', key:'contact' },
+  ];
+  function go(p) { setPage(p); setOpen(false); window.scrollTo(0,0); }
+  return (
+    <>
+      <nav>
+        <div className="nav-logo" onClick={() => go('home')}>AUTO <span>SALON</span> BG</div>
+        <ul className="nav-links">
+          {links.map(l => (
+            <li key={l.key}>
+              <a href="#" className={page === l.key ? 'active' : ''} onClick={e => { e.preventDefault(); go(l.key); }}>
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <button className="hamburger" onClick={() => setOpen(true)} aria-label="Menu">
+          <span/><span/><span/>
+        </button>
+      </nav>
+      <div className={'mobile-menu' + (open ? ' open' : '')}>
+        <button className="mobile-close" onClick={() => setOpen(false)}>✕</button>
+        {links.map(l => (
+          <a key={l.key} href="#" onClick={e => { e.preventDefault(); go(l.key); }}>{l.label}</a>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function AnimatedSection({ children }) {
+  const ref = React.useRef(null);
+  const [visible, setVisible] = React.useState(false);
+  React.useEffect(() => {
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setVisible(true); obs.disconnect(); }
+    }, { threshold: 0.2 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className={'sec-head-animate' + (visible ? ' visible' : '')}>
+      {children}
+    </div>
+  );
+}
+
+function AnimatedCard({ children, delay, onClick }) {
+  const ref = React.useRef(null);
+  const [visible, setVisible] = React.useState(false);
+  React.useEffect(() => {
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => setVisible(true), delay);
+        obs.disconnect();
+      }
+    }, { threshold: 0.15 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [delay]);
+  return (
+    <div ref={ref} className={'card card-animate' + (visible ? ' visible' : '')} onClick={onClick}>
+      {children}
+    </div>
+  );
+}
+
+function Home({ goBook }) {
+  return (
+    <div className="page">
+      <div className="hero">
+        <div className="hero-inner">
+          <h2>Автокозметичен Център<br/><span>Auto Salon BG</span></h2>
+          <p>Специално внимание на вашия автомобил</p>
+          <button className="btn" onClick={() => goBook()}>
+            <div className="btn-fill"></div>
+            <span className="btn-text">Запиши час сега</span>
+          </button>
+        </div>
+        <div className="scroll-indicator" onClick={() => window.scrollTo({top: window.innerHeight, behavior:'smooth'})}>
+          <span>Scroll</span>
+          <div className="scroll-arrow"></div>
+        </div>
+      </div>
+      <div className="services-section">
+        <AnimatedSection>
+          <div className="sec-head">
+            <h2>Услуги</h2>
+            <p>Видове измиване и обработка</p>
+            <div className="sec-div"/>
+          </div>
+        </AnimatedSection>
+        <div className="cards">
+          {SERVICES.map((s, i) => (
+            <AnimatedCard key={i} delay={i * 120} onClick={() => goBook(s.title)}>
+              <h3>{s.title}</h3>
+              <div className="prices">{s.prices.map((p,j) => <div key={j}>{p}</div>)}</div>
+              <div className="dur">⏱ {s.dur}</div>
+              {s.inc && <div className="inc">✦ {s.inc}</div>}
+            </AnimatedCard>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AnimatedPillar({ children, delay }) {
+  const ref = React.useRef(null);
+  const [visible, setVisible] = React.useState(false);
+  React.useEffect(() => {
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => setVisible(true), delay);
+        obs.disconnect();
+      }
+    }, { threshold: 0.2 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [delay]);
+  return (
+    <div ref={ref} className={'pillar pillar-animate' + (visible ? ' visible' : '')}>
+      {children}
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <div className="page">
+      <div className="about-hero">
+        <div className="about-inner">
+          <div className="about-eyebrow">Кои сме ние</div>
+          <h2>За нас</h2>
+          <div className="sec-div" style={{margin:'14px auto 20px'}}/>
+          <p>
+            Auto Salon Bulgaria е най-доброто автомобилно съоръжение в София, Пловдив и Плевен.
+            В ASB вярваме, че всяко превозно средство е уникално и работим в тясно сътрудничество
+            с нуждите и идеите на нашите клиенти, за да постигнем максимални резултати.
+          </p>
+        </div>
+      </div>
+      <div className="about-pillars">
+        {[
+          { icon:'fa-map-marker-alt', num:'3', lbl:'Града', desc:'София, Пловдив и Плевен' },
+          { icon:'fa-star', num:'500+', lbl:'Клиенти', desc:'Доволни и върнали се клиенти' },
+          { icon:'fa-wrench', num:'5', lbl:'Услуги', desc:'Измиване, вакса, полиране' },
+        ].map((p, i) => (
+          <AnimatedPillar key={p.lbl} delay={i * 150}>
+            <i className={'fas ' + p.icon + ' pillar-icon'}/>
+            <div className="pillar-num">{p.num}</div>
+            <div className="pillar-lbl">{p.lbl}</div>
+            <div className="pillar-desc">{p.desc}</div>
+          </AnimatedPillar>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function useScrollAnim(cls) {
+  const ref = React.useRef(null);
+  const [visible, setVisible] = React.useState(false);
+  React.useEffect(() => {
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setVisible(true); obs.disconnect(); }
+    }, { threshold: 0.15 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return [ref, cls + (visible ? ' visible' : '')];
+}
+
+function Gallery() {
+  const [idx, setIdx] = useState(0);
+  const [slideRef, slideCls] = useScrollAnim('gallery-anim');
+  const [thumbRef, thumbCls] = useScrollAnim('gallery-anim');
+  const [videoRef, videoCls] = useScrollAnim('gallery-anim');
+
+  React.useEffect(() => {
+    const t = setInterval(() => setIdx(i => (i + 1) % SLIDES.length), 4000);
+    return () => clearInterval(t);
+  }, []);
+  const prev = () => setIdx(i => (i - 1 + SLIDES.length) % SLIDES.length);
+  const next = () => setIdx(i => (i + 1) % SLIDES.length);
+  return (
+    <div className="page" style={{animation:'fadeIn 0.6s ease'}}>
+      <div className="gallery-hero"><h2>Галерия</h2></div>
+      <div className="slideshow">
+        <div ref={slideRef} className={slideCls} style={{transitionDelay:'0.1s'}}>
+          <div className="slide-main">
+            <img src={SLIDES[idx]} alt={'Снимка ' + (idx+1)} key={idx} />
+            <button className="slide-arr prev" onClick={prev}>&#8249;</button>
+            <button className="slide-arr next" onClick={next}>&#8250;</button>
+          </div>
+        </div>
+        <div ref={thumbRef} className={thumbCls} style={{transitionDelay:'0.3s'}}>
+          <div className="slide-thumbs">
+            {SLIDES.map((src,i) => (
+              <div key={i} className={'slide-thumb' + (i===idx?' active':'')} onClick={() => setIdx(i)}>
+                <img src={src} alt={'Миниатюра ' + (i+1)} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div ref={videoRef} className={videoCls} style={{transitionDelay:'0.2s'}}>
+        <div className="video-sec">
+          <h3>Вижте ни в действие</h3>
+          <div className="video-wrap">
+            <iframe src="https://www.youtube.com/embed/FWcr6TgLPFA" allowFullScreen title="Auto Salon Video"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ServiceSelect({ selected, onChange }) {
+  const [open, setOpen] = useState(false);
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    function onDocClick(e) {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    }
+    document.addEventListener('mousedown', onDocClick);
+    return () => document.removeEventListener('mousedown', onDocClick);
+  }, []);
+  function toggle(title) {
+    if (selected.includes(title)) onChange(selected.filter(s => s !== title));
+    else onChange([...selected, title]);
+  }
+  function remove(title, e) {
+    e.stopPropagation();
+    onChange(selected.filter(s => s !== title));
+  }
+  return (
+    <div className={'multiselect' + (open ? ' open' : '')} ref={ref}>
+      <button type="button" className="multiselect-trigger" onClick={() => setOpen(o => !o)}>
+        {selected.length === 0 ? (
+          <span className="multiselect-placeholder">Избери услуга...</span>
+        ) : (
+          <div className="multiselect-chips">
+            {selected.map(title => (
+              <span className="chip" key={title}>
+                {title}
+                <i className="fas fa-times chip-x" onClick={e => remove(title, e)} />
+              </span>
+            ))}
+          </div>
+        )}
+        <i className={'fas fa-chevron-down multiselect-arrow' + (open ? ' open' : '')}/>
+      </button>
+      {open && (
+        <div className="multiselect-panel">
+          {SERVICES.map((s, i) => {
+            const checked = selected.includes(s.title);
+            return (
+              <label key={s.title} className={'multiselect-option' + (checked ? ' checked' : '')} style={{animationDelay: (i * 35) + 'ms'}}>
+                <span className="ms-checkbox">
+                  <input type="checkbox" checked={checked} onChange={() => toggle(s.title)} />
+                  <i className="fas fa-check"/>
+                </span>
+                <span className="ms-label">{s.title}</span>
+              </label>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Book({ setPage, preselect }) {
+  const [f, setF] = useState({ firstName:'', lastName:'', plate:'', email:'', phone:'', services: preselect ? [preselect] : [] });
+  const [sent, setSent] = useState(false);
+  const upd = (k, v) => setF(prev => ({ ...prev, [k]:v }));
+  function submit() {
+    if (!f.firstName || !f.email || f.services.length === 0) {
+      alert('Моля попълнете задължителните полета (Име, Email, Услуга).');
+      return;
+    }
+    if (!isValidEmail(f.email)) {
+      alert('Моля въведете валиден Email адрес.');
+      return;
+    }
+    setSent(true);
+  }
+  if (sent) return (
+    <div className="page book-page">
+      <div className="book-card">
+        <div className="success">
+          <div className="check">✓</div>
+          <h2 style={{fontFamily:'var(--font-display)',letterSpacing:3,marginBottom:10}}>Успешно записване!</h2>
+          <p style={{color:'rgba(255,255,255,0.6)',marginBottom:24}}>Ще се свържем с вас скоро за потвърждение.</p>
+          <button className="sub-btn" onClick={() => { setSent(false); setPage('home'); window.scrollTo(0,0); }}>Към началото</button>
+        </div>
+      </div>
+    </div>
+  );
+  return (
+    <div className="page book-page">
+      <div className="book-card">
+        <h2>Запиши час</h2>
+        <div className="fgrid">
+          <div className="frow">
+            <label>Име *</label>
+            <input value={f.firstName} onChange={e => upd('firstName',e.target.value)} placeholder="Иван"/>
+          </div>
+          <div className="frow">
+            <label>Фамилия</label>
+            <input value={f.lastName} onChange={e => upd('lastName',e.target.value)} placeholder="Иванов"/>
+          </div>
+        </div>
+        <div className="frow">
+          <label>Номер на автомобила</label>
+          <input value={f.plate} onChange={e => upd('plate',e.target.value.toUpperCase())} style={{textTransform:'uppercase'}} placeholder="СА 1234 АБ"/>
+        </div>
+        <div className="fgrid">
+          <div className="frow">
+            <label>Email *</label>
+            <input type="email" value={f.email} onChange={e => upd('email',e.target.value)} placeholder="email@example.com"/>
+          </div>
+          <div className="frow">
+            <label>Телефон</label>
+            <input type="tel" value={f.phone} onChange={e => upd('phone', e.target.value.replace(/[^\d+\-\s()]/g,''))} placeholder="+359 88..."/>
+          </div>
+        </div>
+        <div className="frow">
+          <label>Услуга *</label>
+          <ServiceSelect selected={f.services} onChange={arr => upd('services', arr)} />
+        </div>
+        <button className="sub-btn" onClick={submit}>Изпрати заявка</button>
+      </div>
+    </div>
+  );
+}
+
+function Contact() {
+  const [m, setM] = useState({ name:'', phone:'', email:'', msg:'' });
+  const [sent, setSent] = useState(false);
+  const [mapRef, mapCls] = useScrollAnim('gallery-anim-left');
+  const [infoRef, infoCls] = useScrollAnim('gallery-anim-right');
+  const [formRef, formCls] = useScrollAnim('gallery-anim');
+  function submit() {
+    if (!m.name || !m.email) { alert('Моля попълнете Име и Email.'); return; }
+    if (!isValidEmail(m.email)) { alert('Моля въведете валиден Email адрес.'); return; }
+    setSent(true);
+  }
+  return (
+    <div className="page" style={{animation:'fadeIn 0.6s ease'}}>
+      <div className="contact-hero"><h2>Контакти</h2></div>
+      <div className="contact-grid">
+        <div ref={mapRef} className={mapCls} style={{transitionDelay:'0.1s'}}>
+          <div className="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23667.04548570294!2d24.725344283606777!3d42.14213982131602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1b09a7b7321%3A0xcea683bb97f2a9a1!2z0J_Qu9C-0LLQtNC40LjQsg!5e0!3m2!1sbg!2sbg!4v1713960368851!5m2!1sbg!2sbg"
+              allowFullScreen loading="lazy" title="Карта"
+            />
+          </div>
+        </div>
+        <div ref={infoRef} className={infoCls} style={{transitionDelay:'0.25s'}}>
+          <div className="cinfo">
+            <h3>Намерете ни</h3>
+            {[
+              { icon:'fa-map-marker-alt', label:'Адрес', val:'Център, Пловдив, България' },
+              { icon:'fa-phone', label:'Телефон', val:'+359 87 631 9542' },
+              { icon:'fa-envelope', label:'Email', val:'auto_salon@website.com' },
+            ].map(r => (
+              <div className="irow" key={r.label}>
+                <i className={'fas ' + r.icon}/>
+                <div><strong>{r.label}</strong><br/>{r.val}</div>
+              </div>
+            ))}
+            <div className="socials">
+              {['fa-facebook-f','fa-youtube','fa-twitter','fa-google'].map(ic => (
+                <a key={ic} href="#" className="soc-btn"><i className={'fab ' + ic}/></a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ref={formRef} className={formCls} style={{transitionDelay:'0.15s'}}>
+      <div className="cform-wrap">
+        <h3>Изпратете съобщение</h3>
+        {sent ? (
+          <p style={{color:'rgba(255,255,255,0.55)'}}>✓ Изпратено! Ще се свържем с вас скоро.</p>
+        ) : (
+          <>
+            <div className="fgrid">
+              <div className="frow">
+                <label>Име и фамилия *</label>
+                <input value={m.name} onChange={e => setM({...m,name:e.target.value})} placeholder="Иван Иванов"/>
+              </div>
+              <div className="frow">
+                <label>Телефон</label>
+                <input type="tel" value={m.phone} onChange={e => setM({...m, phone: e.target.value.replace(/[^\d+\-\s()]/g,'')})} placeholder="+359 88..."/>
+              </div>
+            </div>
+            <div className="frow">
+              <label>Email *</label>
+              <input type="email" value={m.email} onChange={e => setM({...m,email:e.target.value})} placeholder="email@example.com"/>
+            </div>
+            <div className="frow">
+              <label>Съобщение</label>
+              <textarea rows="4" value={m.msg} onChange={e => setM({...m,msg:e.target.value})} placeholder="Вашето съобщение..." style={{resize:'vertical'}}/>
+            </div>
+            <button className="sub-btn" onClick={submit}>Изпрати</button>
+          </>
+        )}
+      </div>
+      </div>
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer>
+      <p>&copy; 2024 <span>Auto Salon Bulgaria</span>. Всички права запазени.</p>
+    </footer>
+  );
+}
+
+function App() {
+  const [page, setPage] = useState('home');
+  const [preselectService, setPreselectService] = useState('');
+  function goBook(service) {
+    setPreselectService(service || '');
+    setPage('book');
+    window.scrollTo(0,0);
+  }
+  function renderPage() {
+    if (page === 'home')    return <Home goBook={goBook}/>;
+    if (page === 'about')   return <About/>;
+    if (page === 'gallery') return <Gallery/>;
+    if (page === 'book')    return <Book setPage={setPage} preselect={preselectService}/>;
+    if (page === 'contact') return <Contact/>;
+    return <Home goBook={goBook}/>;
+  }
+  return (
+    <>
+      <Nav page={page} setPage={setPage}/>
+      {renderPage()}
+      <Footer/>
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App/>);
+</script>
+</body>
+</html>
