@@ -1,0 +1,12 @@
+/* Входна точка на глобалните стилове. Стиловете на страниците са до самите страници (src/pages/*). */
+@import './tokens.css';
+@import './base.css';
+@import './animations.css';
+@import './layout.css';
+@import './components/buttons.css';
+@import './components/section.css';
+@import './components/forms.css';
+@import './components/cards.css';
+@import './components/slideshow.css';
+@import './components/multiselect.css';
+@import './components/chat.css';

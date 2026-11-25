@@ -1,0 +1,56 @@
+/* Главен бутон — червеният фон се плъзга отляво при hover */
+.btn-fill {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 13px 38px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+.btn-fill__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--color-red);
+  transform: translateX(-101%);
+  transition: transform 0.4s var(--ease-out);
+}
+.btn-fill__text {
+  position: relative;
+  z-index: 1;
+}
+.btn-fill:hover { border-color: var(--color-red); }
+.btn-fill:hover .btn-fill__bg { transform: translateX(0); }
+
+/* Бутон за изпращане на форми */
+.btn-submit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 13px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: var(--color-red);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-submit:hover { background: var(--color-red-dark); }
+
+@media (max-width: 768px) {
+  .btn-fill {
+    padding: 11px 28px;
+    font-size: 11px;
+  }
+}

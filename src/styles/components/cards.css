@@ -1,0 +1,83 @@
+/* ── Карта за услуга ── */
+.service-card {
+  height: 100%;
+  padding: 32px 26px;
+  background: var(--color-mid);
+  border-top: 3px solid transparent;
+  transition: background 0.35s, border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+}
+.service-card:hover {
+  background: var(--color-mid-hover);
+  border-top-color: var(--color-red);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(229, 57, 53, 0.15);
+}
+.service-card--clickable {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  cursor: pointer;
+}
+.service-card__title {
+  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 1.5px;
+}
+.service-card__prices {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  line-height: 2;
+}
+.service-card__duration {
+  margin-top: 10px;
+  color: var(--color-muted);
+  font-size: 12px;
+  font-style: italic;
+}
+.service-card__includes {
+  margin-top: 6px;
+  color: rgba(229, 57, 53, 0.7);
+  font-size: 11px;
+}
+
+/* ── Карта за статистика ── */
+.stat-card {
+  height: 100%;
+  padding: 22px 20px;
+  text-align: center;
+  background: var(--color-mid);
+  transition: background 0.3s;
+}
+.stat-card:hover { background: var(--color-mid-hover); }
+.stat-card__icon {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-red);
+  font-size: 22px;
+}
+.stat-card__value {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.stat-card__label {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.stat-card__desc {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
+  line-height: 1.5;
+}

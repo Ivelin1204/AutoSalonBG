@@ -1,0 +1,178 @@
+/* Падащо меню с отметки (избор на услуги) */
+.multiselect { position: relative; }
+
+.multiselect__trigger {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-align: left;
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+}
+.multiselect__trigger:hover { border-color: rgba(255, 255, 255, 0.25); }
+.multiselect.is-open .multiselect__trigger {
+  border-color: var(--color-red);
+  background: rgba(229, 57, 53, 0.06);
+}
+.field--error .multiselect__trigger { border-color: var(--color-red); }
+
+.multiselect__placeholder { color: rgba(255, 255, 255, 0.35); }
+
+.multiselect__chips {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.multiselect__arrow {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--color-muted);
+  transition: transform 0.25s, color 0.25s;
+}
+.multiselect.is-open .multiselect__arrow {
+  transform: rotate(180deg);
+  color: var(--color-red);
+}
+
+.multiselect__panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 6px;
+  background: var(--color-dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  transform-origin: top center;
+  animation: panelDrop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.multiselect__panel::-webkit-scrollbar { width: 8px; }
+.multiselect__panel::-webkit-scrollbar-track { background: transparent; }
+.multiselect__panel::-webkit-scrollbar-thumb {
+  background: rgba(229, 57, 53, 0.4);
+  border-radius: 8px;
+}
+.multiselect__panel::-webkit-scrollbar-thumb:hover { background: var(--color-red); }
+
+.multiselect__option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  opacity: 0;
+  transition: background 0.2s, color 0.2s;
+  animation: optionFall 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.multiselect__option:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-white);
+}
+.multiselect__option.is-checked {
+  background: rgba(229, 57, 53, 0.12);
+  color: var(--color-white);
+}
+.multiselect__label { margin-left: 6px; }
+
+/* ── Чип ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 8px 5px 11px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--color-white);
+  background: rgba(229, 57, 53, 0.15);
+  border: 1px solid rgba(229, 57, 53, 0.4);
+  border-radius: 20px;
+  animation: chipIn 0.2s ease both;
+}
+.chip__remove {
+  padding: 3px;
+  font-size: 10px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+.chip__remove:hover {
+  color: var(--color-white);
+  background: var(--color-red);
+}
+
+/* ── Отметка ── */
+.checkbox {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+}
+.checkbox input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkbox i {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: transparent;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 5px;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.multiselect__option:hover .checkbox i { border-color: rgba(255, 255, 255, 0.6); }
+.checkbox input:checked ~ i {
+  color: var(--color-white);
+  background: var(--color-red);
+  border-color: var(--color-red);
+}
+.checkbox input:focus-visible ~ i {
+  outline: 2px solid var(--color-red);
+  outline-offset: 2px;
+}
+
+@keyframes chipIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes panelDrop {
+  0% { opacity: 0; transform: translateY(-18px) scaleY(0.85); }
+  60% { opacity: 1; transform: translateY(4px) scaleY(1.02); }
+  100% { opacity: 1; transform: translateY(0) scaleY(1); }
+}
+@keyframes optionFall {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

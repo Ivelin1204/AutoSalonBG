@@ -1,0 +1,70 @@
+.booking {
+  min-height: calc(100vh - var(--nav-height));
+  padding: 80px 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.88)),
+    var(--hero-image) center / cover fixed;
+}
+
+.booking__card {
+  width: 100%;
+  max-width: 540px;
+  padding: 44px 40px;
+  background: var(--color-dark);
+  border-top: 3px solid var(--color-red);
+  border-radius: var(--radius-md);
+}
+
+.booking__card h1 {
+  margin-bottom: 28px;
+  font-family: var(--font-display);
+  font-size: 34px;
+  letter-spacing: 3px;
+}
+
+.booking__success {
+  padding: 20px 0;
+  text-align: center;
+  animation: successIn 0.4s ease both;
+}
+.booking__success h1 {
+  margin-bottom: 10px;
+  animation: fadeUpSmall 0.4s ease 0.15s both;
+}
+.booking__success p {
+  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  animation: fadeUpSmall 0.4s ease 0.25s both;
+}
+.booking__success .btn-submit { animation: fadeUpSmall 0.4s ease 0.35s both; }
+.booking__check {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--color-red);
+  font-size: 52px;
+  animation: checkPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes successIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes checkPop {
+  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(1.25) rotate(8deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+@keyframes fadeUpSmall {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  /* Отгоре оставяме място за навигацията, за да не се скрива формата под нея */
+  .booking { padding: calc(var(--nav-height) + 20px) 16px 40px; }
+  .booking__card { padding: 28px 18px; }
+  .booking__card h1 { font-size: 26px; }
+}
