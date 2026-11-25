@@ -1,8 +1,9 @@
 /* ── Hero ── */
 .hero {
   position: relative;
-  height: 92vh;
-  min-height: 92vh;
+  height: calc(100vh - var(--nav-height));
+  height: calc(100svh - var(--nav-height));
+  min-height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,11 +73,7 @@
 }
 
 @media (max-width: 768px) {
-  .hero {
-    height: 93vh;
-    min-height: 93vh;
-    padding: 0 20px;
-  }
+  .hero { padding: 0 20px; }
   .hero__content {
     width: 100%;
     margin-top: -100px;
