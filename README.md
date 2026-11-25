@@ -24,7 +24,8 @@ src/
 │   ├── layout/               Navbar, Footer, ScrollToTop
 │   ├── chat/                 ChatWidget (виртуален асистент)
 │   ├── ui/                   Reveal, FillButton, SectionHeading, PageHero, Field, MultiSelect
-│   ├── ServiceCard.tsx
+│   ├── ServiceCard.tsx       карта в мрежата с услуги
+│   ├── ServiceDetail.tsx     голяма секция за една процедура (снимка + информация)
 │   ├── StatCard.tsx
 │   └── Slideshow.tsx
 ├── pages/                    всяка страница със собствен .css файл
@@ -49,7 +50,7 @@ src/
 
 | Какво | Къде |
 | --- | --- |
-| Цени и услуги | `src/data/services.ts` |
+| Цени, услуги, описания, „какво включва“ и снимки на процедурите | `src/data/services.ts` |
 | Валута (лв. → €) | `currency` в `src/data/site.ts` |
 | Телефон, email, адрес, карта | `src/data/site.ts` |
 | Снимки | `src/data/gallery.ts`, `src/data/images.ts` (локални снимки се слагат в `public/images/`) |

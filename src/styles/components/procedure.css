@@ -1,0 +1,165 @@
+/* Секция за една процедура — снимка + информация, редуват се ляво/дясно */
+.procedure {
+  padding: 90px 5%;
+  background: var(--color-black);
+  overflow: hidden;
+}
+.procedure:nth-child(odd) { background: var(--color-dark); }
+
+.procedure__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 70px;
+  align-items: center;
+}
+.procedure--reverse .procedure__media { order: 2; }
+
+/* ── Снимка ── */
+.procedure__image {
+  position: relative;
+}
+.procedure__image::before {
+  content: '';
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 2px solid var(--color-red);
+  border-radius: var(--radius-lg);
+  z-index: 0;
+}
+.procedure--reverse .procedure__image::before { inset: 18px 18px -18px -18px; }
+.procedure__image img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--color-mid);
+}
+.procedure__number {
+  position: absolute;
+  left: 22px;
+  bottom: 14px;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Текст ── */
+.procedure__title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+}
+.procedure__desc {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  line-height: 1.8;
+}
+.procedure__subtitle {
+  margin: 26px 0 12px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.procedure__features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 20px;
+}
+.procedure__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.procedure__features i {
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--color-red);
+}
+
+.procedure__price-tables { max-width: 440px; }
+.procedure__price-tables--split {
+  max-width: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.procedure__prices-label {
+  margin-bottom: 4px;
+  color: var(--color-red);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.procedure__price-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+}
+.procedure__price-row strong {
+  flex-shrink: 0;
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.procedure__duration {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 30px;
+  color: var(--color-white);
+  font-size: 14px;
+}
+.procedure__duration i { color: var(--color-red); }
+.procedure__duration span {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .procedure__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 44px;
+  }
+  .procedure--reverse .procedure__media { order: 0; }
+  .procedure__image img { height: 360px; }
+}
+
+@media (max-width: 768px) {
+  .procedure { padding: 56px 20px; }
+  .procedure__image::before,
+  .procedure--reverse .procedure__image::before { inset: 10px -10px -10px 10px; }
+  .procedure__image img { height: 250px; }
+  .procedure__number { font-size: 52px; }
+  .procedure__desc { font-size: 15px; }
+  .procedure__features { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .procedure__price-tables--split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}

@@ -3,6 +3,7 @@ import { FillButton } from '../../components/ui/FillButton';
 import { Reveal } from '../../components/ui/Reveal';
 import { SectionHeading } from '../../components/ui/SectionHeading';
 import { ServiceCard } from '../../components/ServiceCard';
+import { ServiceDetail } from '../../components/ServiceDetail';
 import { useBooking } from '../../hooks/useBooking';
 import { IMAGES } from '../../data/images';
 import { SERVICES } from '../../data/services';
@@ -50,6 +51,12 @@ export default function HomePage() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      <section className="procedures" aria-label="Процедури">
+        {SERVICES.map((service, i) => (
+          <ServiceDetail key={service.id} service={service} index={i} total={SERVICES.length} onBook={(s) => goBook(s.title)} />
+        ))}
       </section>
     </main>
   );

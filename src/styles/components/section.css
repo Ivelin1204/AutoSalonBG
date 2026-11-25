@@ -23,6 +23,7 @@
   background: var(--color-red);
 }
 .divider--spaced { margin: 14px auto 20px; }
+.divider--left { margin: 16px 0 20px; }
 
 .eyebrow {
   margin-bottom: 10px;

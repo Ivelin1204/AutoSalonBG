@@ -16,6 +16,14 @@ export interface Service {
   unit?: string;
   duration: string;
   includes?: string;
+  /** Подробно описание за секцията на процедурата */
+  description: string;
+  /** Какво включва процедурата */
+  features: string[];
+  image: string;
+  imageAlt: string;
+  /** Допълнителен ценоразпис, напр. за кожен салон */
+  altPrices?: { label: string; prices: ServicePrice[] };
 }
 
 export interface Stat {
