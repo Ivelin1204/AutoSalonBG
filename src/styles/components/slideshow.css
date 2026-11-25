@@ -1,92 +1,147 @@
-.slideshow {
-  max-width: 860px;
+/* Карусел — активната снимка е в центъра, съседните се виждат отстрани */
+.carousel {
+  max-width: 1200px;
   margin: 55px auto 0;
   padding: 0 20px;
+  --slide-width: 60%;
+  --slide-shift: 82%;
 }
 
-.slideshow__main {
+.carousel__stage {
   position: relative;
+  height: 480px;
   overflow: hidden;
-  border-radius: var(--radius-lg);
-}
-.slideshow__main img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  animation: slideFade 0.5s ease;
+  touch-action: pan-y;
+  user-select: none;
 }
 
-.slideshow__arrow {
+.carousel__slide {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--slide-width);
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-mid);
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  opacity: 0.4;
+  transform: translateX(calc(-50% + var(--offset) * var(--slide-shift))) scale(0.82);
+  transition:
+    transform 0.6s var(--ease-out),
+    opacity 0.6s var(--ease-out);
+}
+.carousel__slide:hover { opacity: 0.6; }
+.carousel__slide.is-active {
+  z-index: 2;
+  opacity: 1;
+  cursor: default;
+  transform: translateX(-50%) scale(1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+.carousel__slide.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--color-red);
+}
+.carousel__slide.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.carousel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.carousel__arrow {
   position: absolute;
   top: 50%;
-  z-index: 2;
-  width: 44px;
-  height: 44px;
+  z-index: 3;
+  width: 46px;
+  height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 15px;
   color: var(--color-white);
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   transform: translateY(-50%);
   cursor: pointer;
   transition: background 0.3s, border-color 0.3s;
 }
-.slideshow__arrow:hover {
+.carousel__arrow:hover {
   background: var(--color-red);
   border-color: var(--color-red);
 }
-.slideshow__arrow--prev { left: 14px; }
-.slideshow__arrow--next { right: 14px; }
+/* Стрелките стоят на ръба на централната снимка */
+.carousel__arrow--prev { left: calc(50% - var(--slide-width) / 2 - 23px); }
+.carousel__arrow--next { right: calc(50% - var(--slide-width) / 2 - 23px); }
 
-.slideshow__thumbs {
+.carousel__footer {
+  max-width: 60%;
+  margin: 20px auto 0;
   display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
-.slideshow__thumb {
-  flex-shrink: 0;
-  width: 80px;
-  height: 54px;
-  padding: 0;
-  overflow: hidden;
-  background: none;
-  border: 2px solid transparent;
-  border-radius: var(--radius-md);
-  opacity: 0.55;
-  cursor: pointer;
-  transition: border-color 0.25s, opacity 0.25s;
+.carousel__counter {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
-.slideshow__thumb:hover { opacity: 0.85; }
-.slideshow__thumb.is-active {
-  border-color: var(--color-red);
-  opacity: 1;
-}
-.slideshow__thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.carousel__counter span { color: rgba(255, 255, 255, 0.35); }
 
-@keyframes slideFade {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
+.carousel__dots {
+  display: flex;
+  gap: 8px;
+}
+.carousel__dot {
+  width: 22px;
+  height: 3px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: width 0.3s, background 0.3s;
+}
+.carousel__dot:hover { background: rgba(255, 255, 255, 0.45); }
+.carousel__dot.is-active {
+  width: 40px;
+  background: var(--color-red);
 }
 
 @media (max-width: 768px) {
-  .slideshow {
+  .carousel {
     margin-top: 30px;
-    padding: 0 12px;
+    padding: 0;
+    --slide-width: 78%;
+    --slide-shift: 90%;
   }
-  .slideshow__main img { height: 250px; }
-  .slideshow__thumb { width: 60px; height: 42px; }
+  .carousel__stage { height: 260px; }
+  .carousel__arrow { display: none; }
+  .carousel__footer {
+    max-width: none;
+    padding: 0 16px;
+  }
 }
 
 @media (max-width: 400px) {
-  .slideshow__main img { height: 200px; }
-  .slideshow__thumbs { gap: 5px; }
-  .slideshow__thumb { width: 50px; height: 36px; }
+  .carousel__stage { height: 220px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__slide { transition: opacity 0.3s; }
 }
