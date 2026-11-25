@@ -63,13 +63,12 @@
 
 /* ── Услуги ── */
 .services {
-  padding: 90px 5%;
+  padding-top: 90px;
   background: var(--color-black);
 }
-.services__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3px;
+.services .section-heading {
+  margin-bottom: 0;
+  padding: 0 5%;
 }
 
 @media (max-width: 768px) {
@@ -94,8 +93,8 @@
     letter-spacing: 1px;
   }
 
-  .services { padding: 60px 16px; }
-  .services__grid { grid-template-columns: 1fr; }
+  .services { padding-top: 60px; }
+  .services .section-heading { padding: 0 16px; }
 }
 
 @media (max-width: 400px) {

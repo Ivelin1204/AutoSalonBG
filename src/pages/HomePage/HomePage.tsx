@@ -2,7 +2,6 @@ import { useRef, type CSSProperties } from 'react';
 import { FillButton } from '../../components/ui/FillButton';
 import { Reveal } from '../../components/ui/Reveal';
 import { SectionHeading } from '../../components/ui/SectionHeading';
-import { ServiceCard } from '../../components/ServiceCard';
 import { ServiceDetail } from '../../components/ServiceDetail';
 import { useBooking } from '../../hooks/useBooking';
 import { IMAGES } from '../../data/images';
@@ -44,19 +43,11 @@ export default function HomePage() {
           <SectionHeading title="Услуги" subtitle="Видове измиване и обработка" />
         </Reveal>
 
-        <div className="services__grid">
+        <div className="procedures">
           {SERVICES.map((service, i) => (
-            <Reveal key={service.id} delay={i * 120}>
-              <ServiceCard service={service} onSelect={(s) => goBook(s.title)} />
-            </Reveal>
+            <ServiceDetail key={service.id} service={service} index={i} total={SERVICES.length} onBook={(s) => goBook(s.title)} />
           ))}
         </div>
-      </section>
-
-      <section className="procedures" aria-label="Процедури">
-        {SERVICES.map((service, i) => (
-          <ServiceDetail key={service.id} service={service} index={i} total={SERVICES.length} onBook={(s) => goBook(s.title)} />
-        ))}
       </section>
     </main>
   );

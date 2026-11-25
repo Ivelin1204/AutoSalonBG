@@ -24,7 +24,6 @@ src/
 │   ├── layout/               Navbar, Footer, ScrollToTop
 │   ├── chat/                 ChatWidget (виртуален асистент)
 │   ├── ui/                   Reveal, FillButton, SectionHeading, PageHero, Field, MultiSelect
-│   ├── ServiceCard.tsx       карта в мрежата с услуги
 │   ├── ServiceDetail.tsx     голяма секция за една процедура (снимка + информация)
 │   ├── StatCard.tsx
 │   └── Slideshow.tsx

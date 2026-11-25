@@ -4,7 +4,8 @@
   background: var(--color-black);
   overflow: hidden;
 }
-.procedure:nth-child(odd) { background: var(--color-dark); }
+.procedure:nth-child(even) { background: var(--color-dark); }
+.procedure:first-child { padding-top: 60px; }
 
 .procedure__inner {
   max-width: 1180px;
@@ -149,6 +150,7 @@
 
 @media (max-width: 768px) {
   .procedure { padding: 56px 20px; }
+  .procedure:first-child { padding-top: 40px; }
   .procedure__image::before,
   .procedure--reverse .procedure__image::before { inset: 10px -10px -10px 10px; }
   .procedure__image img { height: 250px; }
