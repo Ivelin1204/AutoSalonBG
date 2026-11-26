@@ -28,9 +28,16 @@ export interface Service {
 
 export interface Stat {
   icon: string;
-  value: string;
+  /** Числото, до което брои анимацията */
+  value: number;
+  /** Знак след числото, напр. "+" */
+  suffix?: string;
   label: string;
   description: string;
+  /** Кратки етикети под описанието, напр. градовете */
+  tags: string[];
+  /** Маркира картата с червена линия отдолу */
+  highlight?: boolean;
 }
 
 export interface ContactItem {

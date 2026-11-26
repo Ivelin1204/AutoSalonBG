@@ -1,35 +1,73 @@
 /* ── Карта за статистика ── */
 .stat-card {
   height: 100%;
-  padding: 22px 20px;
-  text-align: center;
+  padding: 30px 28px;
   background: var(--color-mid);
-  transition: background 0.3s;
+  border-bottom: 3px solid transparent;
+  border-radius: var(--radius-lg);
+  transition: background 0.3s, transform 0.3s, border-color 0.3s;
 }
-.stat-card:hover { background: var(--color-mid-hover); }
+.stat-card:hover {
+  background: var(--color-mid-hover);
+  transform: translateY(-4px);
+  border-bottom-color: var(--color-red);
+}
+.stat-card--highlight { border-bottom-color: var(--color-red); }
+
+.stat-card__head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
 .stat-card__icon {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--color-red);
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 22px;
+  color: var(--color-red);
+  background: rgba(229, 57, 53, 0.15);
+  border: 1px solid var(--color-red);
+  border-radius: 50%;
 }
 .stat-card__value {
   font-family: var(--font-display);
-  font-size: 38px;
-  font-weight: 600;
+  font-size: 40px;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
 }
+.stat-card__value span { color: var(--color-red); }
 .stat-card__label {
-  margin-top: 4px;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 10px;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
 .stat-card__desc {
-  margin-top: 6px;
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 12px;
-  line-height: 1.5;
+  margin: 20px 0 16px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.stat-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.stat-card__tags li {
+  padding: 5px 11px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
 }

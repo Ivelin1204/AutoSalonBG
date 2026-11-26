@@ -39,7 +39,7 @@ src/
 │   ├── about.ts              текст „За нас“ и статистики
 │   ├── gallery.ts            снимки в галерията
 │   └── images.ts             фонови снимки на страниците
-├── hooks/                    useInView (анимации при скрол), useForm (форми), useBooking
+├── hooks/                    useInView (анимации при скрол), useCountUp (броене на числа), useForm (форми), useBooking
 ├── utils/                    форматиране на цени, валидация на форми, chatBot (отговори на асистента)
 ├── types/                    TypeScript типове
 └── styles/                   глобални стилове: токени (цветове, шрифтове), база, анимации, компоненти
@@ -52,6 +52,7 @@ src/
 | Цени, услуги, описания, „какво включва“ и снимки на процедурите | `src/data/services.ts` |
 | Валута (лв. → €) | `currency` в `src/data/site.ts` |
 | Телефон, email, адрес, карта | `src/data/site.ts` |
+| Статистики в „За нас“ (числа, текст, етикети) | `src/data/about.ts` |
 | Снимки | `src/data/gallery.ts`, `src/data/images.ts` (локални снимки се слагат в `public/images/`) |
 | Цветове и шрифтове | `src/styles/tokens.css` |
 | Отговори на чатбота | `src/utils/chatBot.ts` |

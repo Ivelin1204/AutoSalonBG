@@ -27,10 +27,16 @@
 }
 
 .stats {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 5%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  background: var(--color-black);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 1000px) and (min-width: 769px) {
+  .stats { grid-template-columns: minmax(0, 1fr); max-width: 620px; }
 }
 
 @media (max-width: 768px) {
@@ -43,5 +49,9 @@
     letter-spacing: 3px;
   }
   .about-hero__text { font-size: 15px; }
-  .stats { grid-template-columns: 1fr; }
+  .stats {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    padding: 40px 16px;
+  }
 }
