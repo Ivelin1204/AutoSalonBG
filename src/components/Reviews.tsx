@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { REVIEWS } from '../data/reviews';
+import { REVIEWS, SAMPLE_REVIEWS } from '../data/reviews';
 import type { Review } from '../types';
 import { FillButton } from './ui/FillButton';
 import { Reveal } from './ui/Reveal';
@@ -48,11 +48,16 @@ function ReviewCard({ review }: { review: Review }) {
   );
 }
 
-/** Секция с отзиви. Показва само реалните отзиви от src/data/reviews.ts. */
+/**
+ * Секция с отзиви от src/data/reviews.ts.
+ * Докато няма реални отзиви, показва примерните — винаги с надпис „Примерни отзиви“.
+ */
 export function Reviews() {
   const navigate = useNavigate();
-  const count = REVIEWS.length;
-  const average = count ? REVIEWS.reduce((sum, r) => sum + r.rating, 0) / count : 0;
+  const isSample = REVIEWS.length === 0;
+  const reviews = isSample ? SAMPLE_REVIEWS : REVIEWS;
+  const count = reviews.length;
+  const average = count ? reviews.reduce((sum, r) => sum + r.rating, 0) / count : 0;
   const leaveReview = () => navigate('/contact');
 
   return (
@@ -61,31 +66,30 @@ export function Reviews() {
         <SectionHeading title="Отзиви" subtitle="Какво казват нашите клиенти" />
       </Reveal>
 
-      {count === 0 ? (
-        <Reveal delay={100}>
-          <div className="reviews__empty">
-            <i className="far fa-comments reviews__empty-icon" aria-hidden="true" />
-            <h3>Бяхте ли при нас?</h3>
-            <p>Ще се радваме да споделите мнението си — то помага на нас да ставаме по-добри, а на други шофьори да изберат.</p>
-            <FillButton onClick={leaveReview}>Оставете отзив</FillButton>
-          </div>
-        </Reveal>
-      ) : (
+      {isSample && (
+        <p className="reviews__sample-note">
+          <i className="fas fa-info-circle" aria-hidden="true" /> Примерни отзиви — показват как ще изглежда секцията
+        </p>
+      )}
+
+      {count > 0 && (
         <>
           <Reveal delay={100}>
             <div className="reviews__summary">
               <span className="reviews__average">{average.toFixed(1)}</span>
               <div>
                 <Stars rating={average} label={`Средна оценка ${average.toFixed(1)} от 5`} />
-                <p>
-                  от {count} {count === 1 ? 'отзив' : 'отзива'}
-                </p>
+                {!isSample && (
+                  <p>
+                    от {count} {count === 1 ? 'отзив' : 'отзива'}
+                  </p>
+                )}
               </div>
             </div>
           </Reveal>
 
           <div className="reviews__grid">
-            {REVIEWS.map((review, i) => (
+            {reviews.map((review, i) => (
               <Reveal key={`${review.name}-${i}`} delay={(i % 3) * 120}>
                 <ReviewCard review={review} />
               </Reveal>
