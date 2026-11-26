@@ -117,23 +117,14 @@
   text-align: center;
 }
 
-/* Надпис над примерните отзиви */
+/* Надпис под заглавието, докато отзивите са примерни */
 .reviews__sample-note {
-  width: fit-content;
-  margin: -20px auto 36px;
-  padding: 7px 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px dashed rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
+  margin: -36px 0 30px;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.35);
 }
-.reviews__sample-note i { color: var(--color-red); }
-.reviews__sample-note + .reviews__summary { margin-top: 0; }
 
 /* ── Прозорец за отзив ── */
 .modal {
@@ -236,8 +227,5 @@
   }
   .review-card { padding: 22px; }
   .modal__dialog { padding: 30px 20px 24px; }
-  .reviews__sample-note {
-    max-width: 100%;
-    text-align: center;
-  }
+  .reviews__sample-note { margin-top: -30px; }
 }

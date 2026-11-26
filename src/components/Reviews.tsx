@@ -68,9 +68,7 @@ export function Reviews() {
       </Reveal>
 
       {isSample && (
-        <p className="reviews__sample-note">
-          <i className="fas fa-info-circle" aria-hidden="true" /> Примерни отзиви — показват как ще изглежда секцията
-        </p>
+        <p className="reviews__sample-note">примерни отзиви</p>
       )}
 
       {count > 0 && (
