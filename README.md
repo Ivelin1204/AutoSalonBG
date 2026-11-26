@@ -26,6 +26,7 @@ src/
 │   ├── ui/                   Reveal, FillButton, SectionHeading, PageHero, Field, MultiSelect
 │   ├── ServiceDetail.tsx     голяма секция за една процедура (снимка + информация)
 │   ├── Reviews.tsx           секция с отзиви
+│   ├── ReviewModal.tsx       прозорец за оставяне на отзив
 │   ├── StatCard.tsx
 │   └── Slideshow.tsx
 ├── pages/                    всяка страница със собствен .css файл

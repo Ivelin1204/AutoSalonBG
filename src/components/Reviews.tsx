@@ -1,6 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { REVIEWS, SAMPLE_REVIEWS } from '../data/reviews';
 import type { Review } from '../types';
+import { ReviewModal } from './ReviewModal';
 import { FillButton } from './ui/FillButton';
 import { Reveal } from './ui/Reveal';
 import { SectionHeading } from './ui/SectionHeading';
@@ -53,12 +54,12 @@ function ReviewCard({ review }: { review: Review }) {
  * Докато няма реални отзиви, показва примерните — винаги с надпис „Примерни отзиви“.
  */
 export function Reviews() {
-  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const isSample = REVIEWS.length === 0;
   const reviews = isSample ? SAMPLE_REVIEWS : REVIEWS;
   const count = reviews.length;
   const average = count ? reviews.reduce((sum, r) => sum + r.rating, 0) / count : 0;
-  const leaveReview = () => navigate('/contact');
+  const leaveReview = () => setIsModalOpen(true);
 
   return (
     <section className="reviews" aria-labelledby="reviews-title">
@@ -103,6 +104,7 @@ export function Reviews() {
           </Reveal>
         </>
       )}
+      {isModalOpen && <ReviewModal onClose={() => setIsModalOpen(false)} />}
     </section>
   );
 }

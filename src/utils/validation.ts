@@ -48,3 +48,21 @@ export function validateContact(values: ContactValues): FormErrors<ContactValues
   if (emailError) errors.email = emailError;
   return errors;
 }
+
+export type ReviewValues = {
+  name: string;
+  /** "1"–"5", или "" докато не е избрана оценка */
+  rating: string;
+  service: string;
+  text: string;
+};
+
+const MIN_REVIEW_LENGTH = 10;
+
+export function validateReview(values: ReviewValues): FormErrors<ReviewValues> {
+  const errors: FormErrors<ReviewValues> = {};
+  if (isBlank(values.name)) errors.name = 'Въведете име.';
+  if (!values.rating) errors.rating = 'Изберете оценка.';
+  if (values.text.trim().length < MIN_REVIEW_LENGTH) errors.text = `Напишете поне ${MIN_REVIEW_LENGTH} символа.`;
+  return errors;
+}
