@@ -1,14 +1,13 @@
 import { useCountUp } from '../hooks/useCountUp';
 import { useInView } from '../hooks/useInView';
 import type { Stat } from '../types';
-import { cx } from '../utils/format';
 
 export function StatCard({ stat }: { stat: Stat }) {
   const { ref, inView } = useInView<HTMLDivElement>(0.3);
   const count = useCountUp(stat.value, inView);
 
   return (
-    <div ref={ref} className={cx('stat-card', stat.highlight && 'stat-card--highlight')}>
+    <div ref={ref} className="stat-card">
       <div className="stat-card__head">
         <span className="stat-card__icon" aria-hidden="true">
           <i className={`fas ${stat.icon}`} />

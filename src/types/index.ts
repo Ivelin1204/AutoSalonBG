@@ -36,8 +36,6 @@ export interface Stat {
   description: string;
   /** Кратки етикети под описанието, напр. градовете */
   tags: string[];
-  /** Маркира картата с червена линия отдолу */
-  highlight?: boolean;
 }
 
 export interface ContactItem {

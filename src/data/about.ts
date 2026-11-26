@@ -20,7 +20,6 @@ export const STATS: Stat[] = [
     label: 'Доволни клиенти',
     description: 'Клиенти, които ни се довериха и се връщат отново, защото знаят какво получават.',
     tags: ['Леки автомобили', 'SUV', 'Джипове'],
-    highlight: true,
   },
   {
     icon: 'fa-wrench',
