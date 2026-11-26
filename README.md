@@ -25,6 +25,7 @@ src/
 │   ├── chat/                 ChatWidget (виртуален асистент)
 │   ├── ui/                   Reveal, FillButton, SectionHeading, PageHero, Field, MultiSelect
 │   ├── ServiceDetail.tsx     голяма секция за една процедура (снимка + информация)
+│   ├── Reviews.tsx           секция с отзиви
 │   ├── StatCard.tsx
 │   └── Slideshow.tsx
 ├── pages/                    всяка страница със собствен .css файл
@@ -53,6 +54,7 @@ src/
 | Валута (лв. → €) | `currency` в `src/data/site.ts` |
 | Телефон, email, адрес, карта | `src/data/site.ts` |
 | Статистики в „За нас“ (числа, текст, етикети) | `src/data/about.ts` |
+| Отзиви от клиенти | `src/data/reviews.ts` (има пример вътре) |
 | Снимки | `src/data/gallery.ts`, `src/data/images.ts` (локални снимки се слагат в `public/images/`) |
 | Цветове и шрифтове | `src/styles/tokens.css` |
 | Отговори на чатбота | `src/utils/chatBot.ts` |

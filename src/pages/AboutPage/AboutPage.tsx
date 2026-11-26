@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
 import { Reveal } from '../../components/ui/Reveal';
+import { Reviews } from '../../components/Reviews';
 import { StatCard } from '../../components/StatCard';
 import { ABOUT_TEXT, STATS } from '../../data/about';
 import { IMAGES } from '../../data/images';
@@ -26,6 +27,8 @@ export default function AboutPage() {
           </Reveal>
         ))}
       </section>
+
+      <Reviews />
     </main>
   );
 }

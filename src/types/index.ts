@@ -57,3 +57,17 @@ export interface GalleryImage {
   src: string;
   alt: string;
 }
+
+export interface Review {
+  /** Име на клиента, както е съгласен да се покаже */
+  name: string;
+  /** Оценка от 1 до 5 */
+  rating: 1 | 2 | 3 | 4 | 5;
+  text: string;
+  /** Коя услуга е ползвал, напр. "Твърда вакса" */
+  service?: string;
+  /** Кога е написан, напр. "Октомври 2026" */
+  date?: string;
+  /** Откъде е отзивът, напр. "Google" или "Facebook" */
+  source?: string;
+}
